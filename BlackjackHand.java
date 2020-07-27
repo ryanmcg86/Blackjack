@@ -7,21 +7,25 @@ package csc120;
 //BlackjackHand.java
 //**********************************************************************************
 public class BlackjackHand {
+	//Array of Cards
+	private Card[] hand;
 	
-	private Card[] hand;			//-hand : Card[]			-Array of Cards
+	//Number of Cards in the Hand
+	private int count;
 	
-	private int count;				//-count : int				-Number of Cards in the Hand
-	
-	BlackjackHand(){				//+BlackjackHand()			-Create an array of 10 cards
+	//Create an array of 10 cards
+	BlackjackHand(){
 		hand = new Card[10];
 	}
 	
-	public int getCount(){			//+getCount():int			-Return number of Cards in 
-		return count;				//							 the hand
+	//Return number of Cards in the hand
+	public int getCount(){
+		return count;
 	}
 	
-	public boolean hasRank(int r){	//+hasRank(int r) : boolean	-Return true if a specified
-		int i;						//							 rank is in the hand
+	//Return true if a specified rank is in the hand
+	public boolean hasRank(int r){
+		int i;
 		for(i = 0; i < count; i++){
 		if (hand[i].getRank() == r)
 			return true;
@@ -29,44 +33,46 @@ public class BlackjackHand {
 		return false;
 	}
 	
-	public String toString(){		//+toString(): String		-Return the hand as a String
+	//Return the hand as a String
+	public String toString(){
 		String hand = new String();
 		return hand.toString();
 	}
 	
-	public Card getCard(int x){		//+getCard(int x) : Card	-Return the Card at position x
+	//Return the Card at position x
+	public Card getCard(int x){
 		return hand[x];
 	}
 	
-	public void addCard(Card c){	//+addCard(Card c) : void	-Add a card to the hand
-		hand[count] = c;			//							 (at the end)
+	public void addCard(Card c){	//Add a card to the hand (at the end)
+		hand[count] = c;
 		count++;
 	}
-	public int evaluate(){			//+evaluate() : int			-Return the value of the hand
-		int i = 0;					//							 with the highest possible
-		int j = 0;					//							 points under 22
+	//Return the value of the hand with the highest possible points under 22
+	public int evaluate(){
+		int i = 0;
+		int j = 0;
 		int aceCount = 0;
 		int sum = 0;
 		for(i = 0; i < count; i++){
 			if(hand[i].getRank() >= 0 && hand[i].getRank() <= 8){
-					j = hand[i].getRank() + 2;
-					sum = sum + j;
-				}
-				else if(hand[i].getRank() >= 9 && hand[i].getRank() <= 11){
-					j = 10;
-					sum = sum + j;
-				}
-				else if(hand[i].getRank() > 11){
-					j = 1;
-					aceCount++;
-					sum = sum + j;
-						}
-			
+				j = hand[i].getRank() + 2;
+				sum = sum + j;
 			}
+			else if(hand[i].getRank() >= 9 && hand[i].getRank() <= 11){
+				j = 10;
+				sum = sum + j;
+			}
+			else if(hand[i].getRank() > 11){
+				j = 1;
+				aceCount++;
+				sum = sum + j;
+			}
+			
+		}
 		if((aceCount > 0) && ((sum + 10) <= 21)){
 			sum = sum + 10;
-			}
+		}
 		return sum;
-			}
 	}
-		
+}
