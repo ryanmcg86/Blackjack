@@ -44,7 +44,8 @@ public class BlackjackHand {
 		return hand[x];
 	}
 	
-	public void addCard(Card c){	//Add a card to the hand (at the end)
+	//Add a card to the hand (at the end)
+	public void addCard(Card c){	
 		hand[count] = c;
 		count++;
 	}
