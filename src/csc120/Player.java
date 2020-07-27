@@ -9,63 +9,72 @@ package csc120;
 
 public class Player {
 	ProgramThree playerName = new ProgramThree();
-	private String name;		//-name : String			-Player's name
-	
-	private BlackjackHand hand;	//-hand : BlackjackHand		-Player's Hand of Cards
-	
-	private int points;			//-points : int				-Player's current points in 
-								//							 the game
+	//Player's name
+	private String name;
+	//Player's Hand of Cards
+	private BlackjackHand hand;
+	//Player's current points in the game
+	private int points;
 	
 	public Player(){
-		name = "Dealer";			//+Player()				-Name the player ‘Dealer’
-		hand = new BlackjackHand(); //						-Create a BlackJack hand
+		//Name the player ‘Dealer’
+		name = "Dealer";
+		//Create a BlackJack hand
+		hand = new BlackjackHand();
 		points = 0;
 	}
 	
 	
-	public Player(String n){		//+Player(String n)
-		name = n;					//						-Name the player with the 
-									//						 parameter
-		hand = new BlackjackHand();	//						-Create a BlackJack hand
+	public Player(String n){
+		//Name the player with the given input
+		name = n;
+		//Create a BlackJack hand
+		hand = new BlackjackHand();
 		points = 0;
 	}
 	
-	public void setName(String n){	//+setName(String n) : void	  -Change the player's 
-		//				   name using the parameter
-	
-		
+	//Change the player's name using the parameter
+	public void setName(String n){
 		n = name;
 		name = playerName.readName();
 	}
-	public String getName(){		//+getName() : String	-Return the player's name
+	
+	//Return the player's name
+	public String getName(){
 		return name;
 	}
 	
-	public String toString(){		//+toString() : String			-Return player's info
-		int i = 0;					//								 as a String
-		String summaryA = (getName() + ": " + hand.getCount() +" cards: ");//(I.E. Name,
-		String summaryB = "";		//								 hand and value
-		String summaryC = (": " + getPoints() + " points.");//		 of hand)
+	//Return player's info as a String (I.E. Name, hand and value of hand)
+	public String toString(){
+		int i = 0;
+		String summaryA = (getName() + ": " + hand.getCount() +" cards: ");
+		String summaryB = "";
+		String summaryC = (": " + getPoints() + " points.");
 		for(i = 0; i < hand.getCount(); i++){
 			summaryB = summaryB + (getCard(i) + " ");
 			}
 		return summaryA + summaryB + summaryC;
 	}
 	
-	public BlackjackHand getHand(){	//+getHand() : BlackjackHand	-Return the hand
+	//Return the hand
+	public BlackjackHand getHand(){
 		return hand;
 	}
 	
-	public void addCard(Card c){	//+addCard(Card c) : void		-Add card to the hand
+	//Add card to the hand
+	public void addCard(Card c){
 		hand.addCard(c);
 		}
-	public Card getCard(int x){		//+getCard(int x) : Card		-Return the Card at
-		return hand.getCard(x);		//								 position x
+	//Return the Card at position x
+	public Card getCard(int x){
+		return hand.getCard(x);
 	}
 	
-	public int getPoints(){			//+getPoints() : int			-Evaluate the player's
-		points = hand.evaluate();	//								 hand
-		return points;				//								-Return the value of
-	}								//								 the hand
 	
+	public int getPoints(){
+		//Evaluate the player's hand
+		points = hand.evaluate();
+		//Return the value of the hand
+		return points;
+	}								 
 }
