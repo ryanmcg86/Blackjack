@@ -42,8 +42,7 @@ public class ProgramThree {
 		//GUI myGui = new GUI(3);
 		//myGui.showCard(tempCard);
 
-		NumberFormat currencyFormater = 
-				NumberFormat.getCurrencyInstance();
+		NumberFormat currencyFormater = NumberFormat.getCurrencyInstance();
 
 		BlackJack game = new BlackJack();
 		String betAmountString = "";
@@ -68,24 +67,19 @@ public class ProgramThree {
 
 			while(betAmount > potAmount || betAmount <= 0 || !isNumber(betAmountString)){
 				if(!isNumber(betAmountString)){
-					System.out.println("That's not a valid amount,"
-							+ " please enter a valid amount to bet: ");
+					System.out.println("That's not a valid amount," + " please enter a valid amount to bet: ");
 					betAmountString = scan.next();
 					if(isNumber(betAmountString))
 						betAmount = Double.parseDouble(betAmountString);
-
 				}
 				if(betAmount > potAmount && isNumber(betAmountString)){
-					System.out.println("You don't have that much to bet! Enter" +
-							" a new amount: ");
+					System.out.println("You don't have that much to bet! Enter" + " a new amount: ");
 					betAmountString = scan.next();
 					if(isNumber(betAmountString))
 						betAmount = Double.parseDouble(betAmountString);
-
 				}
 				else if(betAmount < 0 && isNumber(betAmountString)){
-					System.out.println("You can't bet a negative amount! Enter" +
-							" a new amount: ");
+					System.out.println("You can't bet a negative amount! Enter" + " a new amount: ");
 					betAmountString = scan.next();
 					if(isNumber(betAmountString))
 						betAmount = Double.parseDouble(betAmountString);
@@ -136,8 +130,7 @@ public class ProgramThree {
 			System.out.println("You ended up with " + currencyFormater.format(potAmount) + ".");
 			System.out.println("You broke even.");
 		}
-		winningPercentage = 1000 * (((double)game.ties/2) + game.myWins)/
-				(game.myWins + game.dealerWins + game.ties);
+		winningPercentage = 1000 * (((double)game.ties / 2) + game.myWins) / (game.myWins + game.dealerWins + game.ties);
 
 
 		if(winningPercentage == 1000)
@@ -148,19 +141,13 @@ public class ProgramThree {
 		else
 			System.out.println("Your winning percentage is: ." + (int)winningPercentage);
 		if(game.bestStreak == 1)
-			System.out.println("Your best winning streak was " + 
-					game.bestStreak + " game.");
+			System.out.println("Your best winning streak was " + game.bestStreak + " game.");
 		else
-			System.out.println("Your best winning streak was " + 
-					game.bestStreak + " games.");
+			System.out.println("Your best winning streak was " + game.bestStreak + " games.");
 
 		if(game.dealerBestStreak == 1)
-			System.out.println("The dealers' best winning streak was " 
-					+ game.dealerBestStreak + " game.");
+			System.out.println("The dealers' best winning streak was " + game.dealerBestStreak + " game.");
 		else
-			System.out.println("The dealers' best winning streak was " 
-					+ game.dealerBestStreak + " games.");
+			System.out.println("The dealers' best winning streak was " + game.dealerBestStreak + " games.");
 	}
 }
-	
-
