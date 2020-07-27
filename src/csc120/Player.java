@@ -17,7 +17,7 @@ public class Player {
 								//							 the game
 	
 	public Player(){
-		name = "Dealer";			//+Player()				-Name the player ‘Dealer’
+		name = "Dealer";			//+Player()				-Name the player â€˜Dealerâ€™
 		hand = new BlackjackHand(); //						-Create a BlackJack hand
 		points = 0;
 	}
