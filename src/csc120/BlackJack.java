@@ -168,7 +168,7 @@ public class BlackJack {
 		System.out.println("Game over...");
 		System.out.println(" ");
 		String line = "======================================================="
-		String spaces = '                     '
+		String spaces = "                     "
 		int DPoints = dealer.getPoints();
 		int PPoints = n.getPoints();
 		//Display the winner
